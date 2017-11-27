@@ -3,7 +3,8 @@
     ["env", {
       "modules": false,
       "loose": true
-    }]
+    }],
+    "stage-0"
   ],
   "plugins": ["transform-runtime"],
   "compact": "auto"

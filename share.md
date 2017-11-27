@@ -10,8 +10,7 @@
 
 迭代 : reduce
 
-判断元素是否满足 fun 的要求： some( 只要有一个满足，就返回 true) every=== 应用场
-景比如在这个数组中去查找有没有找到。
+判断元素是否满足 fun 的要求： some( 只要有一个满足，就返回 true) every
 
 增删改类：=> 改变原数组的和未改变原数组的
 
@@ -58,4 +57,13 @@ Math.max(...[14, 3, 77])
 * findIndex() 返回第一个符合条件的数组成员的位置，如果所有成员都不符合件，则返回
   -1。
 
-3. iterable 可遍历对象 =>
+3. 对象 => 简写， 属性表达式， Object.is
+
+浅拷贝Object.assign({},{}) =>keys values=> ,entries
+
+扩展基本用不到 let {a,b,...c} => {a:'test',b:'test', c:'test', d: 'jj'}
+
+
+
+
+
