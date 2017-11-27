@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "loose": true
+    }]
+  ],
+  "plugins": ["transform-runtime"],
+  "compact": "auto"
+}

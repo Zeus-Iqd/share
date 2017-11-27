@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "html"
+  ],
+  "rules": {
+    // 不使用分号
+    "semi": ["error", "never"],
+    // 总是使用 === 和 !==
+    "eqeqeq": ["error", "always"],
+    // 箭头函数前后要有空格
+    "arrow-spacing": "error",
+    // 不使用 var
+    "no-var": "error",
+    // 操作符之间要有空格
+    "space-infix-ops": ["error", { "int32Hint": false }],
+    // 2 个空格缩进
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    // js 必须使用单引号或者模板字符串
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    // 逗号后面使用空格
+    "comma-spacing": "error",
+    // 禁止使用未声明的变量
+    "no-undef": "error",
+    // 关键字周围需要有空格
+    "keyword-spacing": "error",
+    // 禁止小括号之前的空格
+    "space-before-function-paren": ["error", "never"],
+    // 块语句之前要有空格
+    "space-before-blocks": "error"
+  }
+}
