@@ -42,11 +42,13 @@ export default {
             trigger: 'item',
             formatter: '{b} : {c} ({d}%)'
           },
+          // 图例
           legend: {
             x: 'center',
             y: 'bottom',
             data: picExample
           },
+          // series[i]-pie 系列
           series: {
             type: 'pie',
             // 内圆半径，外圆半径
