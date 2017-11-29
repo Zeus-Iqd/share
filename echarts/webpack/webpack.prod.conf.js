@@ -22,6 +22,7 @@ module.exports = version => {
     devtool: config.build.sourceMap ? '#source-map' : false,
     output: {
       path: config.build.assetsRoot,
+      publicPath: config.build.publicPath,
       filename: `assets/js/[name].${version ? version : '[chunkhash:7]'}.js`,
       chunkFilename: `assets/js/[id].${version ? version : '[chunkhash:7]'}.js`
     },
@@ -41,7 +42,9 @@ module.exports = version => {
       }),
       // extract css into its own file
       new ExtractTextPlugin({
-        filename: `assets/css/[name].${version ? version : '[contenthash:7]'}.css`
+        filename: `assets/css/[name].${
+          version ? version : '[contenthash:7]'
+        }.css`
       }),
       // Compress extracted CSS. We are using this plugin so that possible
       // duplicated CSS from different components can be deduped.
@@ -55,14 +58,13 @@ module.exports = version => {
       // split vendor js into its own file
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
-        minChunks: function (module, count) {
+        minChunks: function(module, count) {
           // any required modules inside node_modules are extracted to vendor
           return (
             module.resource &&
             /\.js$/.test(module.resource) &&
-            module.resource.indexOf(
-              path.join(__dirname, '../node_modules')
-            ) === 0
+            module.resource.indexOf(path.join(__dirname, '../node_modules')) ===
+              0
           )
         }
       }),
@@ -103,6 +105,7 @@ module.exports = version => {
         conf.chunks = ['vendor', item]
         conf.hash = true
       }
+      console.log(conf, 250)
       webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
     }
   } else {
@@ -117,18 +120,18 @@ module.exports = version => {
         asset: '[path].gz[query]',
         algorithm: 'gzip',
         test: new RegExp(
-          '\\.(' +
-          config.build.productionGzipExtensions.join('|') +
-          ')$'
+          '\\.(' + config.build.productionGzipExtensions.join('|') + ')$'
         ),
-        threshold: 10240,
-        minRatio: 0.8
+        threshold: 1,
+        minRatio: 0.8,
+        deleteOriginalAssets: false
       })
     )
   }
 
   if (config.build.bundleAnalyzerReport) {
-    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+      .BundleAnalyzerPlugin
     webpackConfig.plugins.push(new BundleAnalyzerPlugin())
   }
 

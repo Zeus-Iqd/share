@@ -13,8 +13,10 @@ module.exports = {
   build: {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    publicPath: '/',
-    sourceMap: false
+    publicPath: './',
+    sourceMap: false,
+    productionGzip: true,
+    productionGzipExtensions: ['js', 'css']
   },
   dev: {
     port: 2333,
